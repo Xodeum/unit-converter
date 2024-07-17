@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit Converter</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+        .container { padding: 20px; }
+        .converter { margin-bottom: 20px; }
+        .converter select, .converter input { margin: 5px; padding: 10px; }
+        .footer { text-align: center; padding: 20px; background-color: #f1f1f1; }
+    </style>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Unit Converter Express Version</h1>
+
+        <div class="converter">
+            <h2>Length</h2>
+            <input type="number" id="length-input" placeholder="Enter value">
+            <select id="length-from">
+                <option value="meter">Meter</option>
+                <option value="kilometer">Kilometer</option>
+                <option value="centimeter">Centimeter</option>
+                <option value="millimeter">Millimeter</option>
+                <option value="micrometer">Micrometer</option>
+                <option value="nanometer">Nanometer</option>
+                <option value="mile">Mile</option>
+                <option value="yard">Yard</option>
+                <option value="foot">Foot</option>
+                <option value="inch">Inch</option>
+                <option value="lightyear">Light Year</option>
+            </select>
+            <select id="length-to">
+                <option value="meter">Meter</option>
+                <option value="kilometer">Kilometer</option>
+                <option value="centimeter">Centimeter</option>
+                <option value="millimeter">Millimeter</option>
+                <option value="micrometer">Micrometer</option>
+                <option value="nanometer">Nanometer</option>
+                <option value="mile">Mile</option>
+                <option value="yard">Yard</option>
+                <option value="foot">Foot</option>
+                <option value="inch">Inch</option>
+                <option value="lightyear">Light Year</option>
+            </select>
+            <button onclick="convertLength()">Convert</button>
+            <p id="length-result"></p>
+        </div>
+        <div class="converter">
+            <h2>Temperature</h2>
+            <input type="number" id="temp-input" placeholder="Enter value">
+            <select id="temp-from">
+                <option value="celsius">Celsius</option>
+                <option value="fahrenheit">Fahrenheit</option>
+                <option value="kelvin">Kelvin</option>
+            </select>
+            <select id="temp-to">
+                <option value="celsius">Celsius</option>
+                <option value="fahrenheit">Fahrenheit</option>
+                <option value="kelvin">Kelvin</option>
+            </select>
+            <button onclick="convertTemperature()">Convert</button>
+            <p id="temp-result"></p>
+        </div>
+        
+        <!-- Repeat similar blocks for other converters like Temperature, Area, Volume, Weight, Time -->
+
+        <div class="footer">
+            <p>Design by xodeum</p>
+            <img src="./assets/images/Frame 1.svg" alt="xodeum logo" height="20px">
+        </div>
+    </div>
+
+    <script>
+        function convertLength() {
+            const input = document.getElementById('length-input').value;
+            const fromUnit = document.getElementById('length-from').value;
+            const toUnit = document.getElementById('length-to').value;
+
+            let convertedValue;
+            // Conversion logic
+            if (fromUnit === 'meter' && toUnit === 'kilometer') {
+                convertedValue = input / 1000;
+            } else if (fromUnit === 'kilometer' && toUnit === 'meter') {
+                convertedValue = input * 1000;
+            }
+            // Add more conversion logic for other units
+
+            document.getElementById('length-result').innerText = `Result: ${convertedValue}`;
+        }
+
+        // Repeat similar functions for other converters
+    </script>
+</body>
+</html>
+
